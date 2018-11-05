@@ -1,0 +1,7 @@
+The building is of size: 40,12
+And is filled with rooms consisting of: 
+The room is from: 0,0 to 15,4 and the door is at: 8,4
+The room is from: 15,0 to 30,4 and the door is at: 22,4
+The room is from: 0,6 to 10,11 and the door is at: 6,6
+
+The person is at: 7,2 In room 0

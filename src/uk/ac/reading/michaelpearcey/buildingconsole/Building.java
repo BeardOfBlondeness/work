@@ -8,6 +8,7 @@ public class Building {
 
 	private ArrayList<Room> rooms;
 	private Point size;
+	private Point doorLoc;
 	private Person p;
 	private int ranRoom;
 	private boolean stopped = false;
@@ -34,14 +35,14 @@ public class Building {
 		ranRoom = r.nextInt(rooms.size());
 		Point personPos = rooms.get(ranRoom).ranPos();
 		p = new Person(personPos.x, personPos.y);
-		Point doorLoc = new Point();
+		doorLoc = new Point();
 		doorLoc.setLocation(rooms.get(ranRoom).getDoor().x, rooms.get(ranRoom).getDoor().y);
 		p.setDoorLoc(doorLoc);
 		stopped = false;
 	}	
 	
 	/**
-	 * show all building’s rooms and occupants in the interface
+	 * show all buildingï¿½s rooms and occupants in the interface
 	 * @param bi	the interface
 	 */
 	public void showBuilding (BuildingInterface bi) {
@@ -78,6 +79,17 @@ public class Building {
 			return -1;
 	}
 
+	public void newRoom() {
+		stopped = false;
+		if(ranRoom < 2) {
+			ranRoom++;
+		}else {
+			ranRoom = 0;
+		}
+		doorLoc.setLocation(rooms.get(ranRoom).getDoor());
+		p.setDoorLoc(doorLoc);
+	}
+	
 	public String toString() {
 		String ret = "";
 		ret += "The building is of size: " + size.x + "," + size.y + "\nAnd is filled with rooms consisting of: \n";
